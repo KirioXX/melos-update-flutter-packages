@@ -14,5 +14,6 @@ export interface ApplicationContext {
     targetBranch: string,
     tempBranch: string,
     username: string,
-    needPr: boolean
+    needPr: boolean,
+    majorVersionsUpgrade: boolean,
 }

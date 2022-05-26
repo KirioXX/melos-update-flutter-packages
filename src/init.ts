@@ -36,6 +36,9 @@ function initContext() {
   const octoToken = getInput("token");
   console.log(`GitHub authentication token: ${octoToken}`);
 
+  const majorVersionsUpgrade = (getInput("major-versions-upgrade") == 'true');
+  console.log(`Major Versions Upgrade: ${majorVersionsUpgrade}`);
+
   const octoPayload = JSON.stringify(context.payload, undefined, 2);
   console.log(`The event payload: ${octoPayload}`);
 
@@ -55,7 +58,8 @@ function initContext() {
     targetBranch,
     tempBranch,
     username,
-    needPr: false
+    needPr: false,
+    majorVersionsUpgrade,
   };
   return appContext
 }

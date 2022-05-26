@@ -1,42 +1,47 @@
-name: 'Flutter Package Updater'
-author: 'Tianhao Zhou'
-description: 'Flutter package update automation'
+name: "Flutter Package Updater"
+author: "Tianhao Zhou"
+description: "Flutter package update automation"
 inputs:
   git-email:
-    description: 'The email pull request should be associated with'
+    description: "The email pull request should be associated with"
     required: false
-    default: 'example@flutterbot.com'
+    default: "example@flutterbot.com"
   git-name:
-    description: 'The name pull request should be associated with'
+    description: "The name pull request should be associated with"
     required: false
-    default: 'flutter bot'
+    default: "flutter bot"
   target-branch:
-    description: 'The main branch of the repository where pull requests should be sent to.'
+    description: "The main branch of the repository where pull requests should be sent to."
     required: false
-    default: 'master'
+    default: "main"
   temp-branch:
-    description: 'The branch to get created to update the packages.'
+    description: "The branch to get created to update the packages."
     required: false
-    default: 'chore/update-flutter-packages'
+    default: "chore/update-flutter-packages"
   title:
-    description: 'The title of the pull request'
+    description: "The title of the pull request"
     required: false
-    default: '[flutter package updater] Automated Flutter Packages Update'
+    default: "[flutter package updater] Automated Flutter Packages Update"
   token:
-    description: 'GitHub token used to open pull requests'
+    description: "GitHub token used to open pull requests"
     required: false
-    default: 'local'
+    default: "local"
   log:
-    description: 'The logging level which can be quiet, info, warning or error.'
+    description: "The logging level which can be quiet, info, warning or error."
     required: false
-    default: 'quiet'
+    default: "quiet"
   flutter-project:
-    description: 'The root directory of the Flutter project of interest.'
+    description: "The root directory of the Flutter project of interest."
     required: false
-    default: './'
+    default: "./"
+  major-versions-upgrade:
+    description: "Sets the --major-versions flag if enabled."
+    required: false
+    default: false
 runs:
-  using: 'node12'
-  main: 'lib/index.js'
+  using: "node12"
+  pre: "scripts/setup.sh"
+  main: "lib/index.js"
 branding:
-  icon: 'activity'  
-  color: 'green'
+  icon: "activity"
+  color: "green"
